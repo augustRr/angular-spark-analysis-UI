@@ -1,0 +1,19 @@
+<!--<div class="table-frame">-->
+<!--  <div class="table-container">-->
+<!--    <div *ngFor="let table of tables" class="table-item">-->
+<!--      <a [routerLink]="['/table', table.id]">-->
+<!--        <img src="assets/images/tables/xTable.jpg" alt="Table Image">-->
+<!--        <p class="fancy-font">{{ table.name }}</p>-->
+<!--      </a>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="table-list">
+  <div *ngFor="let table of tables" class="table-item">
+    <a [routerLink]="['/table', table.id]">
+      <img src="assets/images/tables/xTable.jpg" alt="Table Image">
+      <p class="fancy-font">{{ table.name }}</p>
+    </a>
+  </div>
+</div>
