@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { TableContainerComponent } from './components/table-container/table-container.component'
+import { TableComponent } from './components/table/table.component';
+import {AboutComponent} from "./components/about/about.component";
 
-const routes: Routes = [];
+const routes: Routes = [  { path: '', component: TableContainerComponent },
+  { path: 'table/:id', component: TableComponent }, // Define the route for table queries
+  {path:'about', component: AboutComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
