@@ -16,9 +16,6 @@ export class TableContainerComponent {
     { id: 7, name: 'Atlanta Crime' },
     { id: 8, name: 'Jersey Demographics' },
     { id: 9, name: 'Bike Rental 2015' },
-    { id: 10, name: 'Table 10' },
-    { id: 11, name: 'Table 11' },
-    { id: 12, name: 'Table 12' },
     // Add more tables as needed
   ];
 }

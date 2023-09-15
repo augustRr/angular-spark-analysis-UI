@@ -1,27 +1,48 @@
 # AngularSparkAnalysisUI
 
+Welcome to the AngularSparkAnalysisUI project! This web page is designed to display Spark table queries and provide users with an interactive interface to create and execute their own queries.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
 
-## Development server
+## Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Follow these steps to set up and run the project locally:
 
-## Code scaffolding
+    Clone the Repository: Start by cloning this repository to your local machine:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+      git clone https://github.com/yourusername/spark-table-query-webpage.git
 
-## Build
+    Install Dependencies: Navigate to the project directory and install the necessary dependencies using npm:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+      cd spark-table-query-webpage
+      npm install
 
-## Running unit tests
+    Start the Development Server: Run the Angular development server to launch the web page locally:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+      ng serve
 
-## Running end-to-end tests
+    The web page will be available at http://localhost:4200/ in your web browser.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+    Customize Configuration (Optional): You can customize the Spark table queries and other project settings by editing the relevant configuration files located in the project's src/app directory.
 
-## Further help
+## Usage
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Displaying Spark Table Queries
+
+    When you visit the web page, you will see a list of pre-defined Spark tables displayed as small images with their names.
+    Click on a table image to view the details of that table.
+
+## Project Structure
+
+The project follows a typical Angular project structure. Here are some important directories and files:
+
+    src/app: Contains the Angular components, services, templates, and styles for the web page.
+    src/assets: Store images and other static assets, such as table images.
+
+## Contributing
+
+Contributions to this project are welcome! If you have any ideas for improvements or new features, feel free to open an issue or submit a pull request.
+
+## Acknowledgments
+
+    This project was inspired by the need to provide an interactive interface for displaying and running Spark table queries.
