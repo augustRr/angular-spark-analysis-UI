@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {RouterModule, Routes} from "@angular/router";
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import {MatTableModule} from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ButtonComponent } from './components/button/button.component';
 import { AboutComponent } from './components/about/about.component';
 import { TableContainerComponent } from './components/table-container/table-container.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TableDisplayComponent } from './components/table-display/table-display.component';
+
 
 // const appRoutes: Routes =[
 //   {path:'', component: TableContainerComponent},
@@ -27,13 +31,15 @@ import { TableContainerComponent } from './components/table-container/table-cont
     FooterComponent,
     ButtonComponent,
     AboutComponent,
-    TableContainerComponent
+    TableContainerComponent,
+    TableDisplayComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
     // RouterModule.forRoot(appRoutes, {enableTracing: true})
   ],
   providers: [],
