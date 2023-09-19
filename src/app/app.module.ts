@@ -4,6 +4,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
+import { MockTableService } from './services/mock-table.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,7 +43,7 @@ import { TableDisplayComponent } from './components/table-display/table-display.
     BrowserAnimationsModule
     // RouterModule.forRoot(appRoutes, {enableTracing: true})
   ],
-  providers: [],
+  providers: [MockTableService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

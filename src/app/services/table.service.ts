@@ -11,11 +11,16 @@ export class TableService {
 
   constructor(private http: HttpClient) { }
 
-  getTableConfiguration(): Observable<TableConfiguration> {
-    return this.http.get<TableConfiguration>(`${this.baseUrl}/table-configuration`);
+
+  getTableConfiguration(tableId: string): Observable<TableConfiguration> {
+    return this.http.get<TableConfiguration>(`${this.baseUrl}/table-configuration/${tableId}`);
   }
 
-  getTableData(): Observable<TableData> {
-    return this.http.get<TableData>(`${this.baseUrl}/table-data`);
+  getTableData(tableId: string): Observable<TableData> {
+    return this.http.get<TableData>(`${this.baseUrl}/table-data/${tableId}`);
+  }
+
+  refreshTableData(tableId: string): Observable<TableData> {
+    return this.http.get<TableData>(`${this.baseUrl}/refresh-table-data/${tableId}`);
   }
 }

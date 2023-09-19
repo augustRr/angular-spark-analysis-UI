@@ -1,5 +1,30 @@
-<h2>Table</h2>
-<app-table
-  [configuration]="tableConfiguration"
-  [data]="tableData"
-></app-table>
+<div class="container">
+  <h1>Table Display Page</h1>
+
+  <!-- Dropdown for selecting columns to group by -->
+  <label for="groupBy">Group by:</label>
+  <select id="groupBy" [(ngModel)]="groupByColumn">
+    <option [value]="null">None</option>
+    <option *ngFor="let column of tableConfiguration.columns" [value]="column.name">{{ column.label }}</option>
+  </select>
+
+  <!-- Display selected grouping columns with aggregation options -->
+  <div *ngIf="groupByColumn !== null">
+    <h2>Grouping Columns:</h2>
+    <div *ngFor="let column of selectedGroupingColumns">
+      <label>
+        <input type="checkbox" [(ngModel)]="column.aggregateAverage"> Average
+      </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="column.aggregateMax"> Max
+      </label>
+      {{ column.name }}
+    </div>
+  </div>
+
+  <!-- Button to refresh data -->
+  <button (click)="refreshData()">Refresh Data</button>
+
+  <!-- Table Component to display data -->
+  <app-table [configuration]="tableConfiguration" [data]="tableData"></app-table>
+</div>
