@@ -9,8 +9,8 @@ export class MockTableService {
   private mockTableConfiguration: TableConfiguration = {
     columns: [
       { name: 'id', label: 'ID', dataType: 'number', sortable: true, groupable: false, visible: true, order: 1 },
-      { name: 'name', label: 'Name', dataType: 'string', sortable: true, groupable: false, visible: true, order: 2 },
-      { name: 'age', label: 'Age', dataType: 'number', sortable: true, groupable: true, visible: true, order: 3 },
+      { name: 'name', label: 'Name', dataType: 'string', sortable: true, groupable: true, visible: true, order: 2 },
+      { name: 'age', label: 'Age', dataType: 'number', sortable: true, groupable: true, visible: true, order: 3, aggregateAverage: false, aggregateMax: false },
     ],
     defaultSortColumn: 'id',
     defaultSortDirection: 'asc'
@@ -34,7 +34,7 @@ export class MockTableService {
       { id: 14, name: 'Charlotte', age: 22 },
       { id: 15, name: 'Julia', age: 28 },
     ],
-    totalRows: 3
+    totalRows: 15
   };
 
   constructor() { }
@@ -47,9 +47,10 @@ export class MockTableService {
     return of(this.mockTableData);
   }
 
-  refreshTableData(): Observable<TableData> {
+  // @ts-ignore
+  refreshTableData(groupingOption: string): Observable<TableData> {
     // Simulate fetching new data (you can modify this as needed)
-    const newData: TableData = {
+    const newAgeGroupData: TableData = {
       rows:[
         { count: 4 ,age: 22 },
         { count: 2 ,age: 25 },
@@ -59,16 +60,38 @@ export class MockTableService {
         { count: 1 ,age: 30 },
         { count: 1 ,age: 35 },
       ],
-      // rows: [
-      //   { id: 4, name: 'Eve', age: 28 },
-      //   { id: 5, name: 'Charlie', age: 22 },
-      //   { id: 6, name: 'Grace', age: 29 },
-      // ],
-
-      totalRows: 3 // Update the total number of rows
+       totalRows: 7 // Update the total number of rows
     };
+    const groupedDataByName = {
+      rows: [
+        {name: 'John', count: 1},
+        {name: 'Alice', count: 1},
+        {name: 'Bob', count: 1},
+        {name: 'Eve', count: 1},
+        {name: 'Charlie', count: 1},
+        {name: 'Grace', count: 1},
+        {name: 'Otto', count: 1},
+        {name: 'Jack', count: 1},
+        {name: 'Florian', count: 1},
+        {name: 'Mathilde', count: 1},
+        {name: 'Tetris', count: 1},
+        {name: 'Leonard', count: 1},
+        {name: 'Touch', count: 1},
+        {name: 'Charlotte', count: 1},
+        {name: 'Julia', count: 1},
+      ],
+      totalRows: 15
+    }
+    if (groupingOption === 'null'){
+      return of(this.mockTableData);
+    }
+    else if (groupingOption === 'age'){
+      return of(newAgeGroupData);
+    }
+    else if(groupingOption === 'name'){
+      return of(groupedDataByName);
+    }
 
-    return of(newData);
   }
 
 }

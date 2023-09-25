@@ -3,9 +3,9 @@
 
   <!-- Dropdown for selecting columns to group by -->
   <label for="groupBy">Group by:</label>
-  <select id="groupBy" [(ngModel)]="groupByColumn">
+  <select id="groupBy" [(ngModel)]="groupByColumn" (change)="onGroupByChange()" >
     <option [value]="null">None</option>
-    <option *ngFor="let column of tableConfiguration.columns" [value]="column.name">{{ column.label }}</option>
+    <option *ngFor="let option of groupByOptions" [value]="option.value">{{ option.label }}</option>
   </select>
 
   <!-- Display selected grouping columns with aggregation options -->
