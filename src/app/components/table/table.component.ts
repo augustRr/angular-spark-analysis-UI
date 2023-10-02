@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import { TableConfiguration, TableData, TableColumn } from './../table-data/table.interface'; // Import the interfaces
+import { TableConfiguration, TableData, TableColumn } from '../table-data/table.interface'; // Import the interfaces
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',

@@ -13,11 +13,18 @@ import { cloneDeep } from 'lodash';
 
 export class TableDisplayComponent implements OnInit {
   // @ts-ignore
-  tableConfiguration: TableConfiguration;
+  tableConfiguration: TableConfiguration= {
+    columns: [],
+    defaultSortColumn: 'id', // Provide default values here
+    defaultSortDirection: 'asc',
+    groupBy: ['gender']
+  };
   // @ts-ignore
   tableData: TableData;
   // @ts-ignore
   originalTableData: TableData;
+  // @ts-ignore
+  tableMap: TableData;
   groupByColumn: string | null = null;
   selectedGroupingColumns: TableColumn[] = [];
   groupByOptions: { label: string; value: string; }[] = [];
@@ -28,10 +35,18 @@ export class TableDisplayComponent implements OnInit {
     this.tableService.getTableConfiguration().subscribe(config => {
       this.tableConfiguration = config;
       this.generateGroupByOptions();
-    });
+      console.log('Table Configuration:', this.tableConfiguration);
+
+      });
     this.tableService.getTableData().subscribe(data => {
+      console.log('Received Table Data:', data); // Log the received table data
       this.originalTableData = cloneDeep(data);
-      this.tableData = cloneDeep(data);
+      this.tableMap = {
+        rows: data.rows.map(row => JSON.parse(row)),
+        totalRows: data.totalRows
+      };
+      this.tableData = { ...this.tableMap };
+      console.log('Table Data:', this.tableData); // Log the received table data
     });
   }
 
@@ -42,7 +57,7 @@ export class TableDisplayComponent implements OnInit {
       });
   }
   updateTableConfiguration() {
-    if (this.groupByColumn === 'null') {
+    if (this.groupByColumn === null) {
       this.tableConfiguration.columns = [
         // Define your columns for the "None" option here
         // For example, if you want to show the original columns:
